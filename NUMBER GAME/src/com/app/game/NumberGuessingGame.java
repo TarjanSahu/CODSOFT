@@ -6,7 +6,7 @@ public class NumberGuessingGame {
 	private int targetNumber;
 	private int attempts;
 	private boolean guessedCorrectly;
-	private final int MAX_ATTEMPTS = 5;
+	private final int MAX_ATTEMPTS = 7;
 
 	public NumberGuessingGame() {
 		Random random = new Random();
@@ -26,10 +26,14 @@ public class NumberGuessingGame {
 	public int getTargetNumber() {
 		return targetNumber;
 	}
+	
+	public int getMAX_ATTEMPTS() {
+		return MAX_ATTEMPTS;
+	}
 
 	public String checkGuess(int userGuess) {
-		attempts++;
-
+		
+		System.out.println("Attempt No. : "+ ++attempts);
 		if (userGuess == targetNumber) {
 			guessedCorrectly = true;
 			return "Congratulations! You guessed the number " + targetNumber + " correctly!";

@@ -15,7 +15,7 @@ public class Tester {
 		while (playAgain) {
 			NumberGuessingGame game = new NumberGuessingGame();
 			System.out.println("Welcome to the Number Guessing Game!");
-			System.out.println("I have selected a number between 1 and 100. Can you guess it?");
+			System.out.println("I have selected a number between 1 and 100.\nYou have Maximum "+game.getMAX_ATTEMPTS()+" Attempts.\nCan you guess it?");
 
 			while (!game.isGameOver()) {
 				try {
@@ -37,7 +37,7 @@ public class Tester {
 					sc.nextLine(); // Clear the input buffer
 				}
 			}
-
+			//After the guessing correct number
 			System.out.println("You took " + game.getAttempts() + " attempts to guess the number.");
 
 			if (!game.isGuessedCorrectly()) {

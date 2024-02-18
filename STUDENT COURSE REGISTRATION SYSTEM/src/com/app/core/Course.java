@@ -1,44 +1,53 @@
 package com.app.core;
 
-import java.time.LocalDate;
-
 public class Course {
 	//  Store course information, including course code, title,
 	//description, capacity, and schedule.
-	private int id;
-	private Course title;
+	private int CourseCode;
+	private String title;
 	private String description;
 	private int capacity;
-	private LocalDate schedule;
+	private String schedule;
 	
-	public Course(int id, Course title, String description, int capacity, LocalDate schedule) {
+	public Course(int CourseCode, String title, String description, int capacity, String schedule) {
 		super();
-		this.id = id;
+		this.CourseCode = CourseCode;
 		this.title = title;
 		this.description = description;
 		this.capacity = capacity;
 		this.schedule = schedule;
 	}
+	
+	
+	
+    public void displayCourseDetails() {
+        System.out.println("Course Code: " + CourseCode);
+        System.out.println("Title: " + title);
+        System.out.println("Description: " + description);
+        System.out.println("Capacity: " + capacity);
+        System.out.println("Schedule: " + schedule+"\n");
+    }
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", title=" + title + ", description=" + description + ", capacity=" + capacity
+		return "Course [CourseCode=" + CourseCode + ", title=" + title + ", description=" + description + ", capacity=" + capacity
 				+ ", schedule=" + schedule + "]";
 	}
+	
 
-	public int getId() {
-		return id;
+	public int getCourseCode() {
+		return CourseCode;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int CourseCode) {
+		this.CourseCode = CourseCode;
 	}
 
-	public Course getTitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(Course title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
@@ -58,13 +67,26 @@ public class Course {
 		this.capacity = capacity;
 	}
 
-	public LocalDate getSchedule() {
+	public String getSchedule() {
 		return schedule;
 	}
 
-	public void setSchedule(LocalDate schedule) {
+	public void setSchedule(String schedule) {
 		this.schedule = schedule;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Course other = (Course) obj;
+		return CourseCode == other.CourseCode;
+	}
+	
 	
 	
 

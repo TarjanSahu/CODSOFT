@@ -61,6 +61,7 @@ public class Quiz {
 			e.printStackTrace();
 		}
 	 }
+	//Helper Method
 	    private String getCorrectAnswerLetter(int correctOption) {
 	        return switch (correctOption) {
 	            case 1 -> "A";

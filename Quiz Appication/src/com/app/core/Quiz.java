@@ -1,6 +1,5 @@
 package com.app.core;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -9,8 +8,6 @@ import exception.InvalidInputException;
 import utils.SampleData;
 
 public class Quiz {
-
-	private List<Question> questions;
 	private int score;
 	private Scanner scanner;
 	
@@ -18,7 +15,6 @@ public class Quiz {
 	
 	 public Quiz() {
 		super();
-		this.questions = new ArrayList<>();
 		this.score = 0;
 		this.scanner = new Scanner(System.in);
 	}

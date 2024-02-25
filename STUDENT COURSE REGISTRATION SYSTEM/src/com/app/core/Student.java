@@ -26,9 +26,13 @@ public class Student {
     public void displayStudentDetails() {
         System.out.println("Student ID: " + studentID);
         System.out.println("Name: " + name);
-        System.out.println("Registered Courses:");
+        System.out.print("Registered Courses: ");
+        if(registeredCourses.isEmpty()) {
+        	System.out.print("Student not yet inrolled any courses");
+        }else {
         for (Course course : registeredCourses) {
-            course.displayCourseDetails();
+            course.displayCourseDetailsForStudents();
+        }
         }
     }
 

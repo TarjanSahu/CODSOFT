@@ -24,8 +24,19 @@ public class CourseRegistrationSystem {
 		students.add(student);
 	}
 	
+	public void registerCourse(int studentId, int courseCode) throws InvalidInputException{
+        Student student = findStudentById(studentId);
+        Course course = findCourseByCode(courseCode);
+        if (student != null && course != null) {
+        	    enrollStudentInCourse(student,course);             
+            } else {
+             System.out.println("Please Enter Vailid Student Id and Course Code");
+              //  throw new InvalidInputException("Please Enter valid Student Id and Course Code");
+            }
+        }
 
-    public void enrollStudentInCourse(Student student, Course course) throws InvalidInputException{
+	
+	public void enrollStudentInCourse(Student student, Course course){
         if (course.getCapacity() > 0) {
             student.registerCourse(course);
             course.setCapacity(course.getCapacity() - 1);
@@ -34,21 +45,13 @@ public class CourseRegistrationSystem {
          	System.out.println("Course is full. Cannot enroll student");
         }
     }
-    public void registerCourse(int studentId, int courseCode) throws InvalidInputException{
-        Student student = findStudentById(studentId);
-        Course course = findCourseByCode(courseCode);
-        if (student != null && course != null) {
-        	    enrollStudentInCourse(student,course);             
-            } else {
-                System.out.println("Student " + student.getName() + " has reached the maximum number of registered courses.");
-            }
-        }
-
-    public void dropCourseForStudent(Student student, Course course) {
+    
+	public void dropCourseForStudent(Student student, Course course) {
         student.dropCourse(course);
         course.setCapacity(course.getCapacity() + 1);
     }
-    public void dropCourse(int studentId, int courseCode) throws InvalidInputException {
+
+	public void dropCourse(int studentId, int courseCode){
         Student student = findStudentById(studentId);
         Course course = findCourseByCode(courseCode);
         if (student != null && course != null) {
@@ -56,11 +59,11 @@ public class CourseRegistrationSystem {
             course.setCapacity(course.getCapacity() + 1);
             System.out.println("Course " + course.getTitle() + " dropped successfully for student " + student.getName());
         } else {
-        	throw new InvalidInputException("Student or course not found.");
+        	System.out.println("Student or course not found.");
         }
     }
 
-    public void displayAvailableCourses() {
+	public void displayAvailableCourses() {
         System.out.println("Available Courses : ");
         for (Course course : courses) {
             course.displayCourseDetails();
@@ -71,7 +74,7 @@ public class CourseRegistrationSystem {
         student.displayStudentDetails();
     }
     
-
+//  Find Student by ID
 	public Student findStudentById(int studentId) {
         for (Student student : students) {
             if (student.getStudentID() == studentId) {
@@ -80,7 +83,8 @@ public class CourseRegistrationSystem {
         }
         return null;
     }
-
+	
+   // (Helper Method)Find the Course by Course Code
     public Course findCourseByCode(int courseCode) {
         for (Course course : courses) {
             if (course.getCourseCode()==(courseCode)) {

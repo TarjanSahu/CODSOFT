@@ -21,11 +21,19 @@ public class Course {
 	
 	
     public void displayCourseDetails() {
-        System.out.println("Course Code: " + CourseCode);
-        System.out.println("Title: " + title);
-        System.out.println("Description: " + description);
-        System.out.println("Capacity: " + capacity);
-        System.out.println("Schedule: " + schedule+"\n");
+        System.out.println("\n		Course Code: " + CourseCode);
+        System.out.println("		Title: " + title);
+        System.out.println("		Description: " + description);
+        System.out.println("		Capacity: " + capacity);
+        System.out.println("		Schedule: " + schedule+"\n");
+    }
+    
+    public void displayCourseDetailsForStudents() {
+        System.out.println("\n		Course Code: " + CourseCode);
+        System.out.println("		Title: " + title);
+        System.out.println("		Description: " + description);
+      //  System.out.println("		Capacity: " + capacity);
+        System.out.println("		Schedule: " + schedule+"\n");
     }
 
 	@Override
@@ -75,17 +83,17 @@ public class Course {
 		this.schedule = schedule;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Course other = (Course) obj;
-		return CourseCode == other.CourseCode;
-	}
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Course other = (Course) obj;
+//		return CourseCode == other.CourseCode;
+//	}
 	
 	
 	

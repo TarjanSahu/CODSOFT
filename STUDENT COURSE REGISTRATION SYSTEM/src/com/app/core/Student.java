@@ -35,13 +35,13 @@ public class Student {
         }
         }
     }
+    
+    public boolean isStudentEnrollInCourse(Student student, Course course) {
+    	return true;
+    }
 
 	public int getStudentID() {
 		return studentID;
-	}
-
-	public void setStudentID(int studentID) {
-		this.studentID = studentID;
 	}
 
 	public String getName() {
@@ -55,11 +55,5 @@ public class Student {
 	public List<Course> getRegisteredCourses() {
 		return registeredCourses;
 	}
-
-	public void setRegisteredCourses(List<Course> registeredCourses) {
-		this.registeredCourses = registeredCourses;
-	}
-	
-	
 
 }

@@ -24,18 +24,19 @@ public class CourseRegistrationSystem {
 		students.add(student);
 	}
 	
-	public void registerCourse(int studentId, int courseCode) throws InvalidInputException{
+	public void registerCourse(int studentId, int courseCode){
         Student student = findStudentById(studentId);
         Course course = findCourseByCode(courseCode);
-        if (student != null && course != null) {
+        if (student != null && course != null ) {
         	    enrollStudentInCourse(student,course);             
             } else {
              System.out.println("Please Enter Vailid Student Id and Course Code");
             }
         }
 
-	
+	//Helper method for registerCourse
 	public void enrollStudentInCourse(Student student, Course course){
+		if(!isaleradyRegistered(student,course)){
         if (course.getCapacity() > 0) {
             student.registerCourse(course);
             course.setCapacity(course.getCapacity() - 1);
@@ -43,13 +44,22 @@ public class CourseRegistrationSystem {
         } else {
          	System.out.println("Course is full. Cannot enroll student");
         }
+		}else {
+			  System.out.println("Student " + student.getName() + " is already registered for course " + course.getTitle());
+		}
     }
+	
+	// Check if the student is already registered for the course
+	public boolean isaleradyRegistered(Student student, Course course) {
+    for (Course c : student.getRegisteredCourses())
+        if (c.getCourseCode() == course.getCourseCode())
+            return true;
+        else 
+        return false;
     
-	public void dropCourseForStudent(Student student, Course course) {
-        student.dropCourse(course);
-        course.setCapacity(course.getCapacity() + 1);
+	return false;
     }
-
+    // Drop the Course
 	public void dropCourse(int studentId, int courseCode){
         Student student = findStudentById(studentId);
         Course course = findCourseByCode(courseCode);
@@ -68,7 +78,7 @@ public class CourseRegistrationSystem {
             course.displayCourseDetails();
         }
     }
-
+//  DisplayStudentDetails
     public void displayStudentDetails(Student student) {
         student.displayStudentDetails();
     }

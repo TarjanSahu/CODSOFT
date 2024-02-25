@@ -31,7 +31,6 @@ public class CourseRegistrationSystem {
         	    enrollStudentInCourse(student,course);             
             } else {
              System.out.println("Please Enter Vailid Student Id and Course Code");
-              //  throw new InvalidInputException("Please Enter valid Student Id and Course Code");
             }
         }
 

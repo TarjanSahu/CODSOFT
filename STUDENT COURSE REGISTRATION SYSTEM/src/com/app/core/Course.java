@@ -27,12 +27,12 @@ public class Course {
         System.out.println("		Capacity: " + capacity);
         System.out.println("		Schedule: " + schedule+"\n");
     }
-    
+
+    // displayCourseDetailsForStudents Function hide the capacity if the course
     public void displayCourseDetailsForStudents() {
         System.out.println("\n		Course Code: " + CourseCode);
         System.out.println("		Title: " + title);
         System.out.println("		Description: " + description);
-      //  System.out.println("		Capacity: " + capacity);
         System.out.println("		Schedule: " + schedule+"\n");
     }
 
